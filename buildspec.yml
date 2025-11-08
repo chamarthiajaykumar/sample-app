@@ -2,15 +2,13 @@ version: 0.2
 
 phases:
   install:
-   commands:
-      - echo "🔧 Installing Node.js 20.x (LTS) from NodeSource..."
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-      - . ~/.nvm/nvm.sh
-      - nvm install 20
-      - nvm use 20
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Using Node version:"
       - node -v
       - npm -v
-      - npm install
+      - npm ci
 
   build:
     commands:
