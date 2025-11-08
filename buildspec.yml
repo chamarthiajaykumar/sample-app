@@ -2,14 +2,14 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 20
-    commands:
-      - echo "💻 Using Node.js runtime from CodeBuild environment"
-      - node -v
-      - npm -v
-      - echo "📦 Installing dependencies..."
-      - npm ci
+    - echo "🔧 Installing Node.js 22.x (LTS) from NodeSource..."
+    - curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
+    - sudo yum install -y nodejs
+    - echo "✅ Node.js installed successfully!"
+    - node -v
+    - npm -v
+    - echo "📦 Installing dependencies..."
+    - npm ci
 
   build:
     commands:
