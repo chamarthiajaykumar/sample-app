@@ -3,9 +3,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Node.js 23..."
-      - curl -fsSL https://deb.nodesource.com/setup_23.x | sudo -E bash -
-      - sudo apt-get install -y nodejs
+      - echo "Installing Node.js 23 manually from tarball..."
+      - curl -fsSL https://nodejs.org/dist/latest-v23.x/node-v23.1.0-linux-x64.tar.xz -o node.tar.xz
+      - tar -xf node.tar.xz
+      - export PATH=$PATH:$(pwd)/node-v23.1.0-linux-x64/bin
       - node -v
       - npm -v
       - echo "Installing dependencies..."
