@@ -17,5 +17,5 @@ fi
 
 # Recreate app directory
 sudo mkdir -p /var/www/react
-sudo chown -R wwww-data:www-data /var/www/react
+sudo chown -R www-data:www-data /var/www/react
 echo "Create fresh /var/www/react directory"
