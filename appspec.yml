@@ -9,19 +9,19 @@ hooks:
   BeforeInstall:
     - location: before_install.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
     
   AfterInstall:
     - location: after_install.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
 
   ApplicationStart:
     - location: start_server.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
 
   ValidateService:
     - location: validate_service.sh
       timeout: 60
-      runas: ubuntu
+      runas: root
