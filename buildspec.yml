@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      - echo "Installing Node.js 23..."
+      - curl -fsSL https://deb.nodesource.com/setup_23.x | sudo -E bash -
+      - sudo apt-get install -y nodejs
+      - node -v
+      - npm -v
+      - echo "Installing dependencies..."
+      - npm ci
+
+  build:
+    commands:
+      - echo "Building Vite app..."
+      - npm run build
+      - mkdir -p deploy
+      - cp -r dist/* deploy/
+      - cp appspec.yml deploy/ || true
+      - cp -r scripts deploy/ || true
+
+artifacts:
+  files:
+    - deploy/**/*
+  discard-paths: yes
