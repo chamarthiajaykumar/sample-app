@@ -2,9 +2,9 @@ version: 0.2
 
 phases:
   install:
-    commands:
-      - echo "🔧 Installing Node.js 22.x from NodeSource..."
-      - curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
+   commands:
+      - echo "🔧 Installing Node.js 20.x (LTS) from NodeSource..."
+      - curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
       - sudo yum install -y nodejs
       - echo "✅ Node.js installed successfully!"
       - node -v
