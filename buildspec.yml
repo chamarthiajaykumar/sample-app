@@ -2,12 +2,19 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 22
     commands:
-      - echo "Using preinstalled Node.js 22"
+      - echo "Installing NVM..."
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      # Load NVM into the current shell
+      - export NVM_DIR="$HOME/.nvm"
+      - '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+      - '[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"'
+      - echo "Installing Node.js 23 using NVM..."
+      - nvm install 23
+      - nvm use 23
       - node -v
       - npm -v
+      - echo "Installing dependencies..."
       - npm ci
 
   build:
