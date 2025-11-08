@@ -2,18 +2,19 @@ version: 0.2
 
 phases:
   install:
-    - echo "🔧 Installing Node.js 22.x (LTS) from NodeSource..."
-    - curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
-    - sudo yum install -y nodejs
-    - echo "✅ Node.js installed successfully!"
-    - node -v
-    - npm -v
-    - echo "📦 Installing dependencies..."
-    - npm ci
+    commands:
+      - echo "🔧 Installing Node.js 22.x from NodeSource..."
+      - curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
+      - sudo yum install -y nodejs
+      - echo "✅ Node.js installed successfully!"
+      - node -v
+      - npm -v
+      - echo "📦 Installing dependencies..."
+      - npm ci
 
   build:
     commands:
-      - echo "Building Vite app..."
+      - echo "🏗️ Building Vite React app..."
       - npm run build
       - mkdir -p deploy
       - cp -r dist/* deploy/
