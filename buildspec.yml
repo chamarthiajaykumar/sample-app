@@ -2,7 +2,7 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
+    commands:
       - echo "Installing Node.js 23..."
       - curl -fsSL https://deb.nodesource.com/setup_23.x | sudo -E bash -
       - sudo apt-get install -y nodejs
